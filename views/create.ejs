@@ -1,0 +1,94 @@
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="create-recipe content">
+        <form action="/recipes" method="post">
+            <label for="title">Názov receptu</label>
+            <input type="text" id="title" name="title" required>
+            <label for="image">Obrázok</label>
+            <input type="file" id="image" name="image">
+            <div id="mats-inputs-div">
+            <label for="mats">Ingrediencie</label>
+            <button type="button" id="add-mats" onClick="addMatsToList()">+</button>
+            <button type="button" id="remove-mats" onClick="removeMatsFromList()">-</button>
+            <input class="mats-input" name="mats[0]" required>
+            </div>
+            <label for="instructions">Postup</label>
+            <textarea id="instructions" name="instructions" required></textarea>
+            <label for="minutesMin">Doba prípravy</label>
+            <input type="text" id="minutesMin" name="minutesMin">
+            <label for="minutesMax">až</label>
+            <input type="text" id="minutesMax" name="minutesMax">
+            <label for="minutesMax">minút</label><br />
+            <label for="isVegan">Vegánske</label>
+            <input type="checkbox" id="isVegan" name="isVegan"><br />
+            <label for="foodType">Typ jedla</label>
+            <select name="foodType" id="foodType-select">
+                <option value="">-</option>
+                <option value="breakfast">Raňajky</option>
+                <option value="soup">Polievka</option>
+                <option value="maincourse">Hlavné jedlo</option>
+                <option value="side">Príloha</option>
+                <option value="salad">Šalát</option>
+                <option value="dessert">Dezert</option>
+                <option value="drink">Nápoj</option>
+                <option value="misc">Iné</option>
+            </select><br />
+            <label for="difficulty">Náročnosť</label>
+            <select name="difficulty" id="difficulty-select">
+                <option value="">-</option>
+                <option value="beginner">Ľahké</option>
+                <option value="intermediate">Stredne náročné</option>
+                <option value="advanced">Náročné</option>
+            </select>
+            <button class="submit-button">Uložiť</button>
+        </form>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+
+    <script>
+        function addMatsToList() {
+            var lastMats = document.getElementsByClassName("mats-input");
+            // var newMatsDiv = document.createElement("div");
+            
+            newMatsId = lastMats.length;
+            newMatsName = "mats[" + newMatsId + "]";
+            var newMatsInput = document.createElement("input");
+            newMatsInput.setAttribute("class", "mats-input");
+            newMatsInput.setAttribute("name", newMatsName);
+
+            document.getElementById("mats-inputs-div").append(newMatsInput);
+
+            // newMatsDiv.append(newMatsInput);
+
+            // var newMatsRemoveButton = document.createElement("button");
+            // newMatsRemoveButton.setAttribute("class", "mats-input-remove-button");
+            // newMatsRemoveButton.setAttribute("type", "button");
+            // newMatsRemoveButton.innerHTML = "-";
+            // newMatsRemoveButton.setAttribute("data-mats_id", newMatsId);
+            // newMatsRemoveButton.addEventListener("click", function(){
+            //     removeMatsFromList(newMatsRemoveButton.dataset.mats_id);
+            // });
+
+            // newMatsDiv.append(newMatsRemoveButton);
+            // newMatsDiv.setAttribute("data-mats_id_div", newMatsId);
+            // newMatsDiv.setAttribute("class", "mats-input-div");
+
+            // document.getElementById("mats-inputs-div").append(newMatsDiv);
+            
+        }
+        function removeMatsFromList() {
+            var mats = document.getElementsByClassName("mats-input");
+            if (mats.length - 1) {
+                mats[mats.length - 1].remove()
+            }
+        }
+    </script>
+</body>
+
+</html>

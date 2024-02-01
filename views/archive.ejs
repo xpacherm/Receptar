@@ -1,0 +1,25 @@
+<html lang="sk">
+    <%- include('./partials/head.ejs') %>
+</html>
+<body>
+
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="site-content">
+        <h2>Všetky recepty</h2>
+            <% if (recipes.length) { %>
+                <ul class="recipes-list">
+                    <% recipes.forEach(recipe => { %>
+                        <a class="single" href="/recipes/<%= recipe.slug %>">
+                        <li class="recipe-item">
+                            <h3 class="recipe-title"><%= recipe.title %></h3>
+                        </li>
+                        </a>
+                    <% }) %>
+                </ul>
+            <% } else { %>
+                <p>Nenašli sa žiadne recepty.</p>
+            <% } %>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+</body>

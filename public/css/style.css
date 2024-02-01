@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+body{
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    font-family: 'Noto Serif', serif;
+  }
+  
+nav{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    text-transform: uppercase;
+  }
+  nav ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  nav li{
+    list-style-type: none;
+    margin-left: 20px;
+  }
+  nav p, nav a{
+    color: #777;
+    font-weight: 300;
+    text-decoration: none;
+  }
+  footer{
+    color: #777;
+    text-align: center;
+    margin: 80px auto 20px;
+  }
+  h2{
+    margin-bottom: 40px;
+  }
+  h3{
+    text-transform: capitalize;
+    margin-bottom: 8px;
+  }
+  .content{
+    margin-left: 20px;
+  }
+
+.create-recipe form{
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.create-recipe input,
+.create-recipe textarea{
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+}
+
+.create-recipe #minutesMin,
+.create-recipe #minutesMax {
+    width: 3rem;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+
+.create-recipe .submit-button {
+    border-radius: 20px;
+    background-color: green;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.create-recipe #isVegan {
+  display: inline-flex;
+  width: 1rem;
+  vertical-align: middle;
+}
+
+#foodType-select,
+#difficulty-select {
+  float: right;
+  width: 10rem;
+}
