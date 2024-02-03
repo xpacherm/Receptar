@@ -10,11 +10,7 @@
             <% if (recipes.length) { %>
                 <ul class="recipes-list">
                     <% recipes.forEach(recipe => { %>
-                        <a class="single" href="/recipes/<%= recipe.slug %>">
-                        <li class="recipe-item">
-                            <h3 class="recipe-title"><%= recipe.title %></h3>
-                        </li>
-                        </a>
+                        <%- include('./partials/recipe-card.ejs', {recipe: recipe}) %>
                     <% }) %>
                 </ul>
             <% } else { %>

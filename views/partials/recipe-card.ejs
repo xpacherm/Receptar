@@ -1,0 +1,11 @@
+<article class="recipe-card">
+<a class="single--link" href="/recipes/<%= recipe.slug %>">
+    <img class="recipe-cover-image" src="/img/cover/<%= recipe.image %>">
+    <h3 class="recipe-title"><%= recipe.title %></h3>
+    <p><%= recipe.minutesMin %> - <%= recipe.minutesMax %> min</p>
+    <% if (recipe.isVegan) { %>
+        <p>Vegánske</p>
+    <% } %>
+    <p><%= new Date(recipe.updatedAt).toLocaleDateString() %></p>      
+</a>
+</article>
