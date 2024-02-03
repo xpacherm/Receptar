@@ -132,11 +132,6 @@ a.single--link{
   text-decoration: none;
 }
 
-.break {
-  flex-basis: 100%;
-  height: 0;
-}
-
 .recipes-list {
   text-align: center;
   display: flex;
