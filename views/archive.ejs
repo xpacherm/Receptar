@@ -17,5 +17,12 @@
                 <p>Nenašli sa žiadne recepty.</p>
             <% } %>
     </div>
+    <% 
+    const pagePrev = page - 1
+    const pageNext = page + 1
+    if (pagePrev >= 0) { %>
+    <a class="page-prev" href="/recipes/?p=<%= pagePrev %>"><--</a>
+    <% } %> 
+    <a class="page-next" href="/recipes/?p=<%= pageNext %>">--></a>
     <%- include('./partials/footer.ejs') %>
 </body>

@@ -6,7 +6,7 @@ const recipe_archive = (req, res) => {
     const recipesPerPage = 3;
     Recipe.find().sort({ createdAt: -1 }).skip(page * recipesPerPage).limit(recipesPerPage)
         .then((result) => {
-            res.render('archive', {recipes: result, title: "Zoznam receptov"});
+            res.render('archive', {recipes: result, title: "Zoznam receptov", page: parseInt(page)});
         })
         .catch(err => {
             console.log(err);
