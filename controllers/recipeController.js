@@ -2,7 +2,9 @@ const Recipe = require('../models/recipe');
 const _ = require('lodash');
 
 const recipe_archive = (req, res) => {
-    Recipe.find().sort({ createdAt: -1 })
+    const page = req.query.p || 0;
+    const recipesPerPage = 3;
+    Recipe.find().sort({ createdAt: -1 }).skip(page * recipesPerPage).limit(recipesPerPage)
         .then((result) => {
             res.render('archive', {recipes: result, title: "Zoznam receptov"});
         })
